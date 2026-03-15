@@ -359,14 +359,36 @@ main {
   }
 
   .embed-wrapper.embed-tall iframe {
-    height: 420px;
+    height: 65svh;
   }
 
   .embed-wrapper.embed-deel iframe {
-    height: 500px;
+    height: 55svh;
+  }
+
+  .embed-wrapper {
+    border-radius: 6px;
+    overflow: hidden;
   }
 
   .viz-grid {
-    gap: 3.5rem;
+    gap: 3rem;
+  }
+
+  .viz-title {
+    font-size: 1.1rem;
+  }
+
+  .viz-attribution {
+    font-size: 0.78rem;
+  }
+
+  .viz-description {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  .viz-image {
+    border-radius: 6px;
   }
 }
