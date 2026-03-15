@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      height: 100vh;
+      overflow: hidden;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+
+    .content {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .img-layer img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .layer-a {
+      z-index: 1;
+      clip-path: inset(0 80% 0 0);
+    }
+
+    .layer-b {
+      z-index: 0;
+    }
+
+    .label {
+      position: absolute;
+      top: 20px;
+      z-index: 10;
+      font-size: 32px;
+      font-weight: 700;
+      color: white;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+      pointer-events: none;
+    }
+
+    .label-a { left: 20px; }
+    .label-b { right: 20px; }
+
+    .slider-line {
+      position: absolute;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: white;
+      z-index: 5;
+      cursor: ew-resize;
+      box-shadow: 0 0 6px rgba(0,0,0,0.4);
+    }
+
+    .slider-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36px;
+      height: 36px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+
+    .slider-handle::before {
+      content: "◀ ▶";
+      font-size: 10px;
+      color: #555;
+      letter-spacing: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="content" id="container">
+    <div class="img-layer layer-b">
+      <img src="aerial_files/b.png" alt="2020">
+    </div>
+    <div class="img-layer layer-a" id="layerA">
+      <img src="aerial_files/a.png" alt="2010">
+    </div>
+    <div class="label label-a">2010</div>
+    <div class="label label-b">2020</div>
+    <div class="slider-line" id="slider">
+      <div class="slider-handle"></div>
+    </div>
+  </div>
+
+  <script>
+    const container = document.getElementById('container');
+    const slider = document.getElementById('slider');
+    const layerA = document.getElementById('layerA');
+    let isDragging = false;
+
+    function setPosition(x) {
+      const rect = container.getBoundingClientRect();
+      let pct = ((x - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      slider.style.left = pct + '%';
+      layerA.style.clipPath = 'inset(0 ' + (100 - pct) + '% 0 0)';
+    }
+
+    // Start at 20%
+    requestAnimationFrame(() => {
+      const rect = container.getBoundingClientRect();
+      setPosition(rect.left + rect.width * 0.2);
+    });
+
+    slider.addEventListener('mousedown', () => isDragging = true);
+    slider.addEventListener('touchstart', () => isDragging = true, { passive: true });
+    document.addEventListener('mouseup', () => isDragging = false);
+    document.addEventListener('touchend', () => isDragging = false);
+
+    document.addEventListener('mousemove', (e) => {
+      if (isDragging) setPosition(e.clientX);
+    });
+    document.addEventListener('touchmove', (e) => {
+      if (isDragging) setPosition(e.touches[0].clientX);
+    }, { passive: true });
+
+    // Allow click-to-jump
+    container.addEventListener('click', (e) => setPosition(e.clientX));
+  </script>
+</body>
+</html>

@@ -17,7 +17,7 @@
         var iframes = document.querySelectorAll('iframe');
         for (var id in e.data['datawrapper-height']) {
           for (var i = 0; i < iframes.length; i++) {
-            if (iframes[i].contentWindow === e.source) {
+            if (iframes[i].contentWindow === e.source && !iframes[i].hasAttribute('data-fixed-height')) {
               iframes[i].style.height = e.data['datawrapper-height'][id] + 'px';
             }
           }
@@ -84,14 +84,7 @@
         <h2 class="viz-title">NYC public transit struggles to recover, while car ridership inches towards pre-pandemic levels</h2>
         <p class="viz-attribution">From my master&#8217;s thesis on transportation in NYC during COVID-19</p>
         <p class="viz-description">Daily ridership compared to pre-pandemic baseline (MTA data) and car registrations compared to pre-pandemic (DMV data).</p>
-        <div class="embed-wrapper embed-datawrapper">
-          <iframe
-            src="https://datawrapper.dwcdn.net/QSNFh/3/"
-            scrolling="no"
-            title="NYC transit ridership vs. pre-pandemic"
-            loading="lazy">
-          </iframe>
-        </div>
+        <p><iframe frameborder="0" height="450px" src="https://datawrapper.dwcdn.net/QSNFh/3/" width="100%" style="max-width: 640px;" data-fixed-height></iframe></p>
       </section>
 
       <!-- Subway ridership map -->
@@ -113,14 +106,7 @@
         <h2 class="viz-title">Tracking growth from the air in Utah</h2>
         <p class="viz-attribution">As seen in <a href="https://www.sltrib.com/" target="_blank" rel="noopener">the Salt Lake Tribune</a></p>
         <p class="viz-description">An aerial view of rapid development in Utah. Click and drag the white line to reveal changes over time.</p>
-        <div class="embed-wrapper embed-tall">
-          <iframe
-            src="https://shane-burke.github.io/aerial1/"
-            scrolling="no"
-            title="Aerial growth in Utah"
-            loading="lazy">
-          </iframe>
-        </div>
+        <p><iframe frameborder="0" height="550px" src="/visualizations/aerial.html" width="100%"></iframe></p>
       </section>
 
     </div><!-- /.viz-grid -->
