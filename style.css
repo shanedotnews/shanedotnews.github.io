@@ -95,8 +95,13 @@ nav a.nav-visualizations {
 .nav-short { display: none; }
 .nav-full  { display: inline; }
 
-nav a:hover {
+nav a.nav-articles:hover {
   color: rgb(132, 206, 2);
+  opacity: 1;
+}
+
+nav a.nav-visualizations:hover {
+  color: rgb(253, 142, 42);
   opacity: 1;
 }
 
@@ -123,6 +128,11 @@ main {
 
 .bio a {
   color: rgb(132, 206, 2);
+}
+
+.bio a:hover {
+  color: rgb(253, 142, 42);
+  opacity: 1;
 }
 
 
