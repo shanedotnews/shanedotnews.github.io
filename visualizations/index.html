@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>visualizations — shane burke</title>
+  <meta name="description" content="Data visualizations by Shane Burke — charts, maps, and interactives on technology, public health, and society.">
+  <link rel="stylesheet" href="https://use.typekit.net/azw4uwt.css">
+  <link rel="stylesheet" href="../style.css">
+
+  <!-- Datawrapper responsive height script -->
+  <script>
+    window.addEventListener('message', function(e) {
+      if (typeof e.data['datawrapper-height'] !== 'undefined') {
+        var iframes = document.querySelectorAll('iframe');
+        for (var id in e.data['datawrapper-height']) {
+          for (var i = 0; i < iframes.length; i++) {
+            if (iframes[i].contentWindow === e.source) {
+              iframes[i].style.height = e.data['datawrapper-height'][id] + 'px';
+            }
+          }
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+
+  <header>
+    <a href="/" class="site-name">shane burke</a>
+    <nav>
+      <a href="/articles/" class="nav-articles">articles</a>
+      <a href="/visualizations/" class="nav-visualizations"><span class="nav-full">visualizations</span><span class="nav-short">visuals</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="viz-grid">
+
+      <!-- =====================================================
+           To add a new visualization:
+           1. Copy one .viz-section block below
+           2. Update title, attribution, description, and iframe src
+           3. Choose embed class: embed-tall (maps/scrolly), embed-short (charts),
+              embed-datawrapper (Datawrapper — auto-resizes)
+           ===================================================== -->
+
+      <!-- Nuclear power -->
+      <section class="viz-section">
+        <h2 class="viz-title">Nuclear power in the U.S.</h2>
+        <p class="viz-attribution">As seen in <a href="https://www.theinformation.com/articles/can-tech-get-nuclear-power-to-move-at-ai-speeds" target="_blank" rel="noopener">The Information&#8217;s &#8220;Can Tech Get Nuclear Power to Move at AI Speeds?&#8221;</a></p>
+        <div class="embed-wrapper embed-tall">
+          <iframe
+            src="https://shane-burke.github.io/nuclear"
+            scrolling="no"
+            title="Nuclear power in the U.S."
+            loading="lazy">
+          </iframe>
+        </div>
+      </section>
+
+      <!-- Redlining Utah -->
+      <section class="viz-section">
+        <h2 class="viz-title">The lasting impacts of redlining on Utah</h2>
+        <p class="viz-attribution">As seen in <a href="https://local.sltrib.com/redline-utah/" target="_blank" rel="noopener">the Salt Lake Tribune</a></p>
+        <p class="viz-description">A visual investigation with scrollytelling and Mapbox GL JS mapping, exploring how historical housing discrimination continues to shape Utah communities today.</p>
+        <a href="https://shane-burke.github.io/redlining" target="_blank" rel="noopener">
+          <img src="../images/utah-redlining.gif" alt="Map of Salt Lake City showing historical redlining districts" class="viz-image" loading="lazy">
+        </a>
+      </section>
+
+      <!-- Deel sanctions -->
+      <section class="viz-section">
+        <h2 class="viz-title">How payments company Deel gets around U.S. sanctions</h2>
+        <p class="viz-attribution">As seen in <a href="https://www.theinformation.com/articles/the-bitter-fintech-feud-that-stretches-from-silicon-valley-to-moscow" target="_blank" rel="noopener">The Information&#8217;s &#8220;The Bitter Fintech Feud That Stretches From Silicon Valley to Moscow&#8221;</a></p>
+        <div class="embed-wrapper embed-deel">
+          <iframe
+            src="https://shane-burke.github.io/deel"
+            scrolling="no"
+            title="How Deel gets around U.S. sanctions"
+            loading="lazy">
+          </iframe>
+        </div>
+      </section>
+
+      <!-- Jensen Huang -->
+      <section class="viz-section">
+        <h2 class="viz-title">Where in the World is Jensen Huang?</h2>
+        <p class="viz-attribution">As seen in <a href="https://www.theinformation.com/articles/jensen-huang-used-delegate-politics-trumps-return" target="_blank" rel="noopener">The Information</a></p>
+        <p class="viz-description">This chart accompanied a story on Nvidia CEO Jensen Huang&#8217;s increased role as a lobbyist for the company to both the United States and China. Data was compiled from his appearances on photos from wire services like Getty and AP, social media, conference websites and Nvidia materials.</p>
+        <img src="../images/where-in-the-world-desktop.png" alt="Chart showing Jensen Huang's global appearances" class="viz-image" loading="lazy">
+      </section>
+
+      <!-- NYC transit — Datawrapper charts -->
+      <section class="viz-section">
+        <h2 class="viz-title">NYC public transit struggles to recover, while car ridership inches towards pre-pandemic levels</h2>
+        <p class="viz-attribution">From my master&#8217;s thesis on transportation in NYC during COVID-19</p>
+        <p class="viz-description">Daily ridership compared to pre-pandemic baseline (MTA data) and car registrations compared to pre-pandemic (DMV data).</p>
+        <div class="embed-wrapper embed-datawrapper">
+          <iframe
+            src="https://datawrapper.dwcdn.net/QSNFh/3/"
+            scrolling="no"
+            title="NYC transit ridership vs. pre-pandemic"
+            loading="lazy">
+          </iframe>
+        </div>
+      </section>
+
+      <!-- Subway ridership map -->
+      <section class="viz-section">
+        <h2 class="viz-title">Subway Ridership Compared to Pre-Pandemic Month</h2>
+        <p class="viz-description">Interactive, created with Mapbox GL JS.</p>
+        <div class="embed-wrapper embed-tall">
+          <iframe
+            src="https://shane-burke.github.io/Subway-Ridership/"
+            scrolling="no"
+            title="NYC Subway Ridership vs. Pre-Pandemic"
+            loading="lazy">
+          </iframe>
+        </div>
+      </section>
+
+      <!-- Utah aerial -->
+      <section class="viz-section">
+        <h2 class="viz-title">Tracking growth from the air in Utah</h2>
+        <p class="viz-attribution">As seen in <a href="https://www.sltrib.com/" target="_blank" rel="noopener">the Salt Lake Tribune</a></p>
+        <p class="viz-description">An aerial view of rapid development in Utah. Click and drag the white line to reveal changes over time.</p>
+        <div class="embed-wrapper embed-tall">
+          <iframe
+            src="https://shane-burke.github.io/aerial1/"
+            scrolling="no"
+            title="Aerial growth in Utah"
+            loading="lazy">
+          </iframe>
+        </div>
+      </section>
+
+    </div><!-- /.viz-grid -->
+  </main>
+
+</body>
+</html>
